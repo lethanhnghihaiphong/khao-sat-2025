@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Khảo sát nhanh</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <div class="card__header">
+        <h1>Khảo sát trải nghiệm</h1>
+        <p>Hãy cho chúng tôi biết ý kiến của bạn</p>
+      </div>
+
+      <form id="surveyForm" class="card__body">
+        <div class="field">
+          <label>Họ tên *</label>
+          <input name="name" required>
+        </div>
+        <div class="field">
+          <label>Email *</label>
+          <input name="email" type="email" required>
+        </div>
+        <div class="field">
+          <label>Đánh giá *</label>
+          <div class="rating">
+            <input type="radio" id="r1" name="rating" value="1"><label for="r1">1</label>
+            <input type="radio" id="r2" name="rating" value="2"><label for="r2">2</label>
+            <input type="radio" id="r3" name="rating" value="3"><label for="r3">3</label>
+            <input type="radio" id="r4" name="rating" value="4"><label for="r4">4</label>
+            <input type="radio" id="r5" name="rating" value="5"><label for="r5">5</label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Góp ý</label>
+          <textarea name="feedback" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn">Gửi phản hồi</button>
+        <p id="status" class="status"></p>
+      </form>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
