@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbzm1CYxekr2uzO35yh8txWB2BEAYVpYTCgvPm8EzurLTGun1sLfzcipNymy-Krso9oPeg/exec"; // thay URL của bạn
+const API_URL = "https://script.google.com/macros/s/AKfycbxufNg4OijNUKeqehifdEWCn3RaPjAuZIF-Jdj-NXhAyO6jNTnEFqJP7SXpR6xYvfQ9Tg/exec"; // thay URL của bạn
 const form = document.getElementById("surveyForm");
 const status = document.getElementById("status");
 
