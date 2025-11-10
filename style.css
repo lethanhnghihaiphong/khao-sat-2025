@@ -48,7 +48,7 @@ body {
 .status.err {color:#fa5252;}
 .logo {
   display: block;
-  width: 100px;          /* chỉnh kích thước tùy ý */
+  width: 50px;          /* chỉnh kích thước tùy ý */
   margin: 0 auto 16px;   /* canh giữa và cách dưới */
   border-radius: 8px;    /* bo góc nhẹ */
 }
