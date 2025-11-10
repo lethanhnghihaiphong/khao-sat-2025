@@ -20,7 +20,7 @@ body {
 }
 .card:hover {transform: translateY(-2px);}
 
-.card__header h1 {margin:0 0 6px 0;}
+.card__header h1 {margin:center 0 6px 0;}
 .card__header p {margin:0 0 20px 0; color:#9aa1c6;}
 
 .field {margin-bottom:14px;}
