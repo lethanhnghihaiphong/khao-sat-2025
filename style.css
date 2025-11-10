@@ -46,3 +46,9 @@ body {
 .status {margin-top:10px; font-size:14px;}
 .status.ok {color:#2f9e44;}
 .status.err {color:#fa5252;}
+.logo {
+  display: block;
+  width: 100px;          /* chỉnh kích thước tùy ý */
+  margin: 0 auto 16px;   /* canh giữa và cách dưới */
+  border-radius: 8px;    /* bo góc nhẹ */
+}
