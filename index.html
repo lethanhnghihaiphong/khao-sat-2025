@@ -21,11 +21,11 @@
       <form id="surveyForm" class="card__body">
         <div class="field">
           <label>Họ tên *</label>
-          <input name="name" required>
+          <input name="name" value="Trịnh Khuyên" required>
         </div>
         <div class="field">
           <label>Email *</label>
-          <input name="email" type="email" required>
+          <input name="email" type="email" value="trinhkhuyen@gmail.com" required>
         </div>
         <div class="field">
           <label>Đánh giá *</label>
@@ -34,12 +34,12 @@
             <input type="radio" id="r2" name="rating" value="2"><label for="r2">2</label>
             <input type="radio" id="r3" name="rating" value="3"><label for="r3">3</label>
             <input type="radio" id="r4" name="rating" value="4"><label for="r4">4</label>
-            <input type="radio" id="r5" name="rating" value="5"><label for="r5">5</label>
+            <input type="radio" id="r5" name="rating" value="5" checked><label for="r5">5</label>
           </div>
         </div>
         <div class="field">
           <label>Góp ý</label>
-          <textarea name="feedback" rows="3"></textarea>
+          <textarea name="feedback" rows="3"> Good...</textarea>
         </div>
         <button type="submit" class="btn">Gửi Thông tin</button>
         <p id="status" class="status"></p>
