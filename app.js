@@ -2,9 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("surveyForm");
   const status = document.getElementById("status");
 
-  const API_URL = "https://corsproxy.io/?" + encodeURIComponent(
+  const API_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent(
     "https://script.google.com/macros/s/AKfycbz5UKQFVrxaFfCMRcqQ_78itWVm7q3HirEV4vWxgo3jO_37cKT9A6tgrAdqsKCOCKsnMQ/exec"
-  );
+);
+
+
 
   form.addEventListener("submit", async e => {
     e.preventDefault();
