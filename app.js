@@ -1,51 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("surveyForm");
-  const status = document.getElementById("status");
-  const btn = form.querySelector("button[type=submit]");
-  const collectIpCheckbox = document.getElementById("collectIp");
+const form = document.getElementById("surveyForm");
+const status = document.getElementById("status");
+const checkbox = document.getElementById("collectIp");
 
-  const API_URL = "https://script.google.com/macros/s/AKfycbz5UKQFVrxaFfCMRcqQ_78itWVm7q3HirEV4vWxgo3jO_37cKT9A6tgrAdqsKCOCKsnMQ/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbz5UKQFVrxaFfCMRcqQ_78itWVm7q3HirEV4vWxgo3jO_37cKT9A6tgrAdqsKCOCKsnMQ/exec";
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    btn.disabled = true;
-    status.textContent = "Đang gửi...";
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  status.textContent = "Đang gửi...";
 
-    const data = Object.fromEntries(new FormData(form).entries());
+  const data = Object.fromEntries(new FormData(form).entries());
 
-    // Nếu tick checkbox thì lấy IP public
-    if (collectIpCheckbox && collectIpCheckbox.checked) {
-      try {
-        const ipRes = await fetch("https://api.ipify.org?format=json");
-        const ipJson = await ipRes.json();
-        data.ip = ipJson.ip || "";
-      } catch (err) {
-        console.warn("Không lấy được IP:", err);
-        data.ip = "";
-      }
-    } else {
-      data.ip = ""; // hoặc không gửi trường này nếu bạn muốn
-    }
-
+  // Nếu tick thì thêm IP
+  if (checkbox.checked) {
     try {
-      // mode: "no-cors" nếu bạn vẫn dùng cách đó để tránh CORS
-      await fetch(API_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      status.textContent = "Đã gửi phản hồi.";
-      status.className = "status ok";
-      form.reset();
-    } catch (err) {
-      console.error(err);
-      status.textContent = "Lỗi mạng hoặc API.";
-      status.className = "status err";
-    } finally {
-      // tránh gửi liên tiếp
-      setTimeout(() => { btn.disabled = false; }, 1500);
+      const res = await fetch("https://api.ipify.org?format=json");
+      const j = await res.json();
+      data.ip = j.ip;
+    } catch {
+      data.ip = "Không lấy được IP";
     }
-  });
+  } else {
+    data.ip = "Không thu IP";
+  }
+
+  // Gửi lên Apps Script
+  try {
+    await fetch(API_URL, {
+      method: "POST",
+      mode: "no-cors", // vẫn dùng để tránh lỗi CORS
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    status.textContent = "Đã gửi phản hồi.";
+    status.className = "status ok";
+    form.reset();
+  } catch {
+    status.textContent = "Lỗi gửi dữ liệu.";
+    status.className = "status err";
+  }
 });
