@@ -14,11 +14,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const res = await fetch(API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+        await fetch(API_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+    });
+    status.textContent = "Đã gửi phản hồi.";
+    status.className = "status ok";
+    form.reset();
+
 
       const json = await res.json();
       if (json.ok) {
