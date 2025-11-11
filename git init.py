@@ -43,4 +43,13 @@ fetch("https://script.google.com/macros/s/AKfycbxufNg4OijNUKeqehifdEWCn3RaPjAuZI
   .then(console.log)
   .catch(console.error);
 
+  
+
+
+  Invoke-WebRequest `
+  -Uri "https://script.google.com/macros/s/AKfycbz5UKQFVrxaFfCMRcqQ_78itWVm7q3HirEV4vWxgo3jO_37cKT9A6tgrAdqsKCOCKsnMQ/exec" `
+  -Method POST `
+  -Headers @{"Content-Type"="application/json"} `
+  -Body '{"name":"Test","email":"a@b.com","rating":"5","feedback":"ok"}'
+
 """
