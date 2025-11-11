@@ -26,3 +26,21 @@ git push → đẩy lên GitHub (GitHub Pages tự build lại, vài chục giâ
 
 AppSheet ID: AKfycbz5UKQFVrxaFfCMRcqQ_78itWVm7q3HirEV4vWxgo3jO_37cKT9A6tgrAdqsKCOCKsnMQ
 URL: https://script.google.com/macros/s/AKfycbz5UKQFVrxaFfCMRcqQ_78itWVm7q3HirEV4vWxgo3jO_37cKT9A6tgrAdqsKCOCKsnMQ/exec
+
+
+"""
+fetch("https://script.google.com/macros/s/AKfycbxufNg4OijNUKeqehifdEWCn3RaPjAuZIF-Jdj-NXhAyO6jNTnEFqJP7SXpR6xYvfQ9Tg/exec", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    name: "Test User",
+    email: "test@example.com",
+    rating: "5",
+    feedback: "Everything OK"
+  })
+})
+  .then(r => r.text())
+  .then(console.log)
+  .catch(console.error);
+
+"""
